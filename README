@@ -1,0 +1,81 @@
+File README for Moscow SML 1.03 for DOS/Windows/OS2 (12 September 1994)
+
+Information files:
+    install.txt         Installation instructions for DOS
+    extens.txt          List of extensions over Core Standard ML
+    readme              This file
+    recomp.txt          How to recompile Moscow SML
+
+Executable files:
+    mosml.exe           Moscow SML executable                   (required)
+    camlrun.exe         Modified Caml Light runtime system      (required)
+    emu387              Floating point emulator
+
+Copyright information:
+    copying.dj          djgpp/go32 copyright notice (DJ Delorie, NH, USA)
+    copyrght.cl6        Caml Light copyright notice (INRIA, France)
+    GPL2                GNU General Public License
+
+LIMITATIONS
+
+The current version 1.00 of Moscow SML
+    * implements the entire Standard ML Core language
+    * does not implement modules (signatures, structures, functors)    
+    * does not raise arithmetic exceptions properly
+
+SYSTEM REQUIREMENTS
+
+Moscow SML requires a 386 or 486 PC with 2 MB of RAM or more, and DOS
+3.3 or later.  The installation requires around 360 KB disk space.
+
+AUTHOR AND CREDITS
+
+Moscow SML was written by
+    Sergei Romanenko (sergei-romanenko@refal.msk.su)
+    Keldysh Institute of Applied Mathematics, Russian Academy of Sciences
+    Miusskaya Pl. 4, 125047 Moscow, Russia.
+
+Scientific and practical assistance was provided by
+    Peter Sestoft (sestoft@dina.kvl.dk), Technical University of Denmark.
+
+Moscow SML is based on, and would not exist without:
+    * the CAML Light 0.6 implementation by Xavier Leroy and Damien Doligez
+      (INRIA, Rocquencourt, France);
+    * the ML Kit by Lars Birkedal, Nick Rothwell, Mads Tofte and David Turner
+      (Copenhagen University, Denmark, and Edinburgh University, Scotland);
+    * djgpp and the go32 DOS extender by D.J. Delorie (Rochester, NH, USA).
+
+COPYRIGHT NOTICE FOR MOSCOW SML
+
+    Moscow SML - a lightweight implementation of Core Standard ML.
+    Copyright (C) 1994 Sergei Romanenko, Moscow, Russia.
+
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of the GNU General Public License
+    as published by the Free Software Foundation; either version 2
+    of the License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+AVAILABILITY
+    * The DOS executables are in
+	dina.kvl.dk:pub/Peter.Sestoft/mosml/mos1bin.zip
+    * The Linux executables are in
+	dina.kvl.dk:pub/Peter.Sestoft/mosml/linux-mos1bin.tar.gz
+    * The DOS and Unix source files are in
+	dina.kvl.dk:pub/Peter.Sestoft/mosml/mos1src.tar.gz
+
+You will need Caml Light 0.6 and gcc to recompile Moscow SML for Unix.
+You will need Caml Light 0.6, djgpp, and Borland C++ version 2.0 (or
+later) to recompile Moscow SML for DOS:
+    * Caml Light can be obtained from ftp.inria.fr:lang/caml-light/
+    * Djgpp and go32 can be obtained from oak.oakland.edu:/pub/msdos/djgpp/
+
+Last updated 1994-09-12 by sestoft@dina.kvl.dk

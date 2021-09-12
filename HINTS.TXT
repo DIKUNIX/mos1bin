@@ -1,0 +1,15 @@
+* The overloaded function print: 'a -> 'a uses the type inferred for
+  its argument at compile time to decide how to print it.  Polymorphic
+  arguments are printed as `<poly>', functions as `fn', and so on.
+  If necessary, the type can be specified by an explicit type constraint.
+  For instance,
+
+	  let fun p x = print x 
+          in p (true,[2,3]) end
+
+  will print `<poly>', but
+
+	  let fun p (x: bool * int list) = print x 
+          in p (true,[2,3]) end
+
+  will print `(true, [2, 3])'.

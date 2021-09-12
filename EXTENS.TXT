@@ -1,0 +1,127 @@
+This is file extens.txt for Moscow SML 1.02 (11 September 1994)
+
+Extensions
+==========
+
+    * Strings can be compared with `<', `>', `<=', `>='.
+
+    * `std_err' is a stream corresponding to `stderr' in C. All
+      output to std_err is flushed immediately.
+
+    * The `use' command enables a file containing declarations
+      and expressions to be read as if its contents was entered
+      from the console. Syntactically ,`use' is a top-level
+      "declaration" of the form:
+
+          use "filename";
+
+      A file loaded by means of a `use' command may, in turn,
+      contain `use' commands.
+
+
+Non-standard primitives
+=======================
+
+quit : unit -> unit
+
+    Evaluating `quit()' quits Moscow SML immediately.
+
+system : string -> int
+
+    `system "xxx"' causes the command xxx to be executed by the
+    operating system.
+
+    If a non-zero integer is returned, this must indicate that
+    the operating system has failed to execute the command.
+    But, under MS DOS, the integer returned always equals to
+    zero...
+
+    The primitive `system' will work only if the corresponding
+    primitive has been added to the Caml Light run-time system.
+
+print : 'a -> 'a
+
+    `print' is a polymorphic function provided as a quick
+    debugging aid. This is an identity function, which as a
+    side-effect prints its argument exactly as it would be
+    printed at top-level.
+
+    The effect of `print' is different from that in
+    SML/NJ `print' when the argument is a string (but similar
+    to that of Edinburgh ML).  A function similar to SML/NJ `print'
+    for printing strings can be defined as follows:
+
+          fun show t = output(std_out, t)
+
+printDepth : int ref
+
+    This variable determines the depth (in terms of nested 
+    constructors, records, tuples, and lists) to which values 
+    are printed by the top-level value printer and the function 
+    `print'. The components of the value whose depth is greater 
+    than `printDepth' are printed as `#'.
+
+    The initial value of `printDepth' is 20. This value can be 
+    changed by the user's program at any moment.
+
+printLength : int ref
+
+    This variable determines the way in which list values are 
+    printed by the top-level value printer and the function 
+    `print'. If the length of a list is greater than 
+    `printLength', only the first `printLength' elements are 
+    printed, whereas the remaining elements are printed as 
+    `...'.
+
+    The initial value of `printLength' is 200. This value 
+    can be changed by the user's program at any moment.
+
+makestring : 'a -> string
+
+    `makestring' is an overloaded function whose argument must
+    be resolved as either `int', `real', or `string'. It
+    returns a string what `print' would produce on the screen.
+
+flush_out : outstream -> unit
+
+    `flush_out' ensures that the consumer associated with an
+    outstream has received all of the characters that have been
+    written to that stream.
+
+can_input : instream * int -> bool
+
+    `can_input' takes an instream and a number and determines
+    whether or not that many characters may be read from that
+    stream without blocking.  NOTE: In future releases, the type
+    of can_input may change to instream -> int (as in SML/NJ).
+
+input_line : instream -> string
+
+    `input_line' returns a string consisting of the characters
+    from an instream up through, and including, the next
+    end-of-line character. If the end-of-stream is reached
+    without reaching an end-of-line character, all remaining
+    characters from the stream (without an end-of-line
+    character!) are returned.
+
+open_append : string -> outstream
+
+    Files may be open for output while preserving
+    their contents by using `open_append'. Subsequent output to
+    the outstream returned by `open_append' is appended to the
+    contents of the specified file.
+
+Loading files from the command line
+===================================
+
+Entering
+
+  mosml.exe filename1 ... filenameN
+
+is equivalent to entering
+
+  mosml.exe
+
+and, when Moscow SML have started, entering
+
+  use "filename1"; ... use "filenameN";

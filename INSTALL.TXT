@@ -1,0 +1,57 @@
+File install.txt for Moscow SML 1.03 DOS/Windows/OS2 (12 September 1994)
+
+SYSTEM REQUIREMENTS
+
+Moscow SML requires a 386 or 486 PC with 2 MB of RAM or more, and DOS
+3.3 or later.  The installation requires around 360 KB disk space.
+
+INSTALLING MOSCOW SML UNDER DOS
+
+Create two directories
+
+    C:\mosml                for executable files
+    C:\tmp                  for swap files
+
+Copy the files 
+    mosml.exe       camlrun.exe     emu387
+from the diskette to C:\mosml
+
+Add C:\mosml to the PATH variable, and set the GO32TMP variable.
+That is, your AUTOEXEC.BAT file should contain something like:
+    
+    set PATH=C:\dos;  ...  ;C:\mosml
+    set GO32TMP=C:\tmp
+        
+If your PC has no floating point processor, add also:
+    
+    set GO32=emu C:\mosml\emu387
+
+Reboot the system.  Start Moscow SML by typing 
+    mosml
+
+To quit Moscow SML, type `quit();' or control-Z and return.
+
+LIMITATIONS
+
+The current version 1.00 of Moscow SML
+    * implements the entire Standard ML Core language
+    * does not implement modules (signatures, structures, functors)    
+    * does not raise arithmetic exceptions properly
+
+AUTHOR AND CREDITS
+
+Moscow SML was written by
+    Sergei Romanenko (sergei-romanenko@refal.msk.su)
+    Keldysh Institute of Applied Mathematics, Russian Academy of Sciences
+    Miusskaya Pl. 4, 125047 Moscow, Russia.
+
+Scientific and practical assistance was provided by
+    Peter Sestoft (sestoft@dina.kvl.dk), Technical University of Denmark.
+
+Moscow SML is based on, and would not exist without:
+    * the CAML Light 0.6 implementation by Xavier Leroy and Damien Doligez
+      (INRIA, Rocquencourt, France);
+    * the ML Kit by Lars Birkedal, Nick Rothwell, Mads Tofte and David Turner
+      (Copenhagen University, Denmark, and Edinburgh University, Scotland);
+    * djgpp and the go32 DOS extender by D.J. Delorie (Rochester, NH, USA).
+
